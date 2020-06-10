@@ -1,7 +1,7 @@
 import unittest
 
-from chapter1.errors import IllegalCarError
-from chapter1.solution.car import Car
+from task1.errors import IllegalCarError
+from task1.solution.car import Car
 
 
 class CarTestCase(unittest.TestCase):
