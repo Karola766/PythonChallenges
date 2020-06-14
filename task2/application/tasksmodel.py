@@ -4,10 +4,12 @@ from task2.application.errors import NoItemFoundError
 
 
 class TasksModel:
+    """Class dealing with the task database, stored in sqlite format"""
     db_name = 'tasks_db'
     tasks_table = 'tasks_tb'
 
     def connect(self):
+        """Method that forms a connection to an existing database or just to memory"""
         if self is not None:
             formatted_name = '{}.db'.format(self.db_name)
             connection = sqlite3.connect(formatted_name)
@@ -25,6 +27,7 @@ class TasksModel:
             print(e)
 
     def check_existence(self, connection, task_id):
+        """A helper method, checking whether the query would yield any results"""
         query = 'SELECT EXISTS(SELECT 1 FROM {} WHERE id=? LIMIT 1)'.format(
             self.tasks_table)
         executed = connection.execute(query, (task_id,))
@@ -80,7 +83,7 @@ class TasksModel:
         if date:
             query += " WHERE deadline=?"
             date = f"{date:%d.%m.%Y}"
-            task_list = connection.execute(query, (date, ))
+            task_list = connection.execute(query, (date,))
         else:
             task_list = connection.execute(query)
         return task_list.fetchall()

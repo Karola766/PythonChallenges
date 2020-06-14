@@ -1,5 +1,6 @@
 from task1.errors import IllegalCarError
 
+
 class Car:
     pax_norm = (1, 6)
     mass_norm = 2000

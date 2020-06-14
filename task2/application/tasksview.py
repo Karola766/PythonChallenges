@@ -1,4 +1,5 @@
 class TasksView:
+    """Class for displaying the query results"""
 
     @staticmethod
     def display_task(task_id, name, deadline, description):

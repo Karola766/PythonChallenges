@@ -43,7 +43,6 @@ def remove(task_hash):
 @click.option('--deadline', help='Task deadline')
 @click.option('--description', help='Task description')
 def update(task_hash, name, deadline, description):
-    """Simple method for updating tasks."""
     init().update(str(task_hash), name, deadline, description)
 
 

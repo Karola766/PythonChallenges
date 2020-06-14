@@ -8,10 +8,11 @@ class CarTestCase(unittest.TestCase):
 
     def basic_test(self, pax_count, car_mass, gear_count):
         car = Car(pax_count, car_mass, gear_count)
-        self.assertEqual(car.pax_count, pax_count, f"Passenger count should be {pax_count}")
+        self.assertEqual(car.pax_count, pax_count, f"Passenger count should be "
+                                                   f"{pax_count}")
         self.assertEqual(car.car_mass, car_mass, f"Car mass should be {car_mass}")
         self.assertEqual(car.gear_count, gear_count, f"Gear count should be {gear_count}")
-        mass = car_mass+70*pax_count
+        mass = car_mass + 70 * pax_count
         self.assertEqual(car.total_mass, mass, "Total mass should be car_mass + "
                                                "70*pax_count")
 
@@ -29,6 +30,7 @@ class CarTestCase(unittest.TestCase):
     def test_mass_bounds(self):
         with self.assertRaises(IllegalCarError):
             self.basic_test(4, 2100, 4)
+
 
 if __name__ == '__main__':
     test = CarTestCase()
